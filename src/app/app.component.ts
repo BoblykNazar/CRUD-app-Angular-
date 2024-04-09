@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
+import { AuthService } from './services/Auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angularApp';
+
+  constructor ( private authService: AuthService ) {
+    if (!this.authService.getUsers().length) {
+      this.authService.addUser({ email: 'testUser@gmail.com', password: 'Testpass123!' });
+    }
+  };
 }

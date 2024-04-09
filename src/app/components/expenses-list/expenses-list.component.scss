@@ -1,0 +1,102 @@
+.container {
+  padding-block: 50px;
+  padding-inline: 100px;
+}
+
+.title {
+  text-align: center;
+  font-size: 40px;
+  font-weight: 500;
+}
+
+.card {
+  min-width: 100%;
+  padding: 80px;
+
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+  max-height: 500px;
+  min-width: 100%;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+}
+
+.add-button {
+  width: max-content;
+}
+
+a {
+  cursor: pointer;
+}
+
+.table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.icon {
+  color: #272829;
+}
+
+.mat-column-position {
+  width: 50px;
+}
+
+.mat-column-position,
+.mat-column-amount,
+.mat-column-date,
+.mat-column-category {
+  text-align: start;
+}
+
+.delete {
+  color: #DC4067;
+}
+
+.edit {
+  color: #464F60;
+}
+
+.categories {
+  padding: 5px 20px;
+  border-radius: 60px;
+  color: #5A6376;
+  background-color: #E9EDF5;
+}
+
+.food {
+  color: #14804A;
+  background-color: #E1FCEF;
+}
+
+.transport {
+  color: #4F5AED;
+  background-color: #F0F1FA;
+}
+
+.shopping {
+  color: #D12953;
+  background-color: #FAF0F3;
+}

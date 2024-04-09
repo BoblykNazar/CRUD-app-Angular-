@@ -1,0 +1,64 @@
+<div class="login-form-flex">
+  <mat-card class="card">
+    <mat-card-title class="title">
+      Login
+    </mat-card-title>
+    <form [formGroup]="form" (ngSubmit)="onLogin()">
+      <mat-card-content class="container">
+        <mat-form-field>
+          <mat-label>Enter your email</mat-label>
+          <input
+            matInput
+            placeholder="pat@example.com"
+            formControlName="email"
+            (blur)="updateErrorMessage()"
+            required
+          >
+          @if (email.invalid) {
+          <mat-error>{{ loginErrorMessage }}</mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Enter your password</mat-label>
+          <input
+            matInput
+            formControlName="password"
+            (blur)="updateErrorMessage()"
+            [type]="hide ? 'password' : 'text'"
+            required
+          >
+          <button
+            type="button"
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          @if (password.invalid) {
+            <mat-error>{{ passwordErrorMessage }}</mat-error>
+          }
+        </mat-form-field>
+
+        @if (loginErrorMessage === 'Incorrect email or password') {
+          <mat-error>{{ loginErrorMessage }}</mat-error>
+        }
+      </mat-card-content>
+      <mat-card-actions>
+        <div class="button-flex-container">
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="onLogin()"
+            [disabled]="form.invalid"
+          >
+            Login
+          </button>
+        </div>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</div>

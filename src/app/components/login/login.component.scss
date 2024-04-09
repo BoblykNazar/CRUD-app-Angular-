@@ -1,0 +1,29 @@
+.login-form-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.button-flex-container {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card {
+  width: 540px;
+  padding: 42px;
+}
+
+.title {
+  font-size: 40px;
+  font-weight: 500;
+  margin-bottom: 40px;
+}

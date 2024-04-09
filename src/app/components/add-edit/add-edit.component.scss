@@ -1,0 +1,48 @@
+.card-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 540px;
+  padding: 42px;
+}
+
+.title {
+  font-size: 28px;
+  margin: 0;
+}
+
+.mat-mdc-card-header {
+  padding: 0;
+  margin-bottom: 22.5px;
+}
+
+.mat-mdc-card-content {
+  padding: 0;
+}
+
+.mdc-card__actions {
+  padding: 0;
+  gap: 10px;
+}
+
+.mdc-card__actions {
+  min-height: 36px;
+}
+
+.mat-mdc-form-field-subscript-wrapper mat-mdc-form-field-bottom-align {
+  display: block;
+}
+
+.mat-mdc-form-field-infix {
+  padding: 0 !important;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
