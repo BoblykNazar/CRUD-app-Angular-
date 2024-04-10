@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ExpensesService } from '../../services/Expenses/expenses.service';
 import { Router } from '@angular/router';
-import { TableData } from '../../types';
+import { Expense } from '../../types';
 
 @Component({
   selector: 'app-expenses-list',
@@ -10,7 +10,7 @@ import { TableData } from '../../types';
 })
 export class ExpensesListComponent implements OnInit {
   displayedColumns: string[] = ['position', 'amount', 'date', 'category','comment', 'actions'];
-  dataSource: TableData[] = [];
+  expense: Expense[] = [];
 
   constructor(
     private expensesService: ExpensesService,
@@ -22,18 +22,18 @@ export class ExpensesListComponent implements OnInit {
   }
 
   loadExpenses(): void {
-    this.dataSource = this.expensesService.getExpenses();
+    this.expense = this.expensesService.getExpenses();
   }
 
   openForm() {
     this.router.navigate(['/add']);
   }
 
-  editExpense(element: TableData): void {
+  editExpense(element: Expense): void {
     this.router.navigate(['/edit', element.position]);
   }
 
-  deleteExpense(element: TableData): void {
+  deleteExpense(element: Expense): void {
     this.expensesService.deleteExpense(element.position);
     this.loadExpenses();
   }

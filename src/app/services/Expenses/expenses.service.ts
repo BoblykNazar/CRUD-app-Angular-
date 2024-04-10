@@ -1,28 +1,15 @@
 import { Injectable } from '@angular/core';
-import { TableData } from '../../types';
+import { Expense } from '../../types';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ExpensesService {
-  // private readonly STORAGE_KEY = 'expenses';
-
-  // constructor() { }
-
-  // getExpenses(): PeriodicElement[] {
-  //   const expensesJson = localStorage.getItem(this.STORAGE_KEY);
-  //   return expensesJson ? JSON.parse(expensesJson) : [];
-  // }
-
-  // saveExpenses(expenses: PeriodicElement[]): void {
-  //   localStorage.setItem(this.STORAGE_KEY, JSON.stringify(expenses));
-  // }
-
   private readonly STORAGE_KEY = 'expenses';
 
   constructor() { }
 
-  getExpenses(): TableData[] {
+  getExpenses(): Expense[] {
     const expensesJson = localStorage.getItem(this.STORAGE_KEY);
     return expensesJson ? JSON.parse(expensesJson) : [];
   }
@@ -33,20 +20,21 @@ export class ExpensesService {
     return maxPosition + 1;
   }
 
-  getExpenseById(id: number): TableData | undefined {
+  getExpenseById(id: number): Expense | undefined {
     const expenses = this.getExpenses();
     return expenses.find(expense => expense.position === id);
   }
 
-  addExpense(expense: TableData): void {
-    let expenses = this.getExpenses();
+  addExpense(expense: Expense): void {
+    const expenses = this.getExpenses();
     expenses.push(expense);
     this.saveExpenses(expenses);
   }
 
-  updateExpense(id: number, expense: TableData): void {
-    let expenses = this.getExpenses();
+  updateExpense(id: number, expense: Expense): void {
+    const expenses = this.getExpenses();
     const index = expenses.findIndex(item => item.position === id);
+
     if (index !== -1) {
       expenses[index] = expense;
       this.saveExpenses(expenses);
@@ -54,8 +42,9 @@ export class ExpensesService {
   }
 
   deleteExpense(id: number): void {
-    let expenses = this.getExpenses();
+    const expenses = this.getExpenses();
     const index = expenses.findIndex(expense => expense.position === id);
+
     if (index !== -1) {
       expenses.splice(index, 1);
       this.updatePositions(expenses);
@@ -63,11 +52,11 @@ export class ExpensesService {
     }
   }
 
-  private updatePositions(expenses: TableData[]): void {
+  private updatePositions(expenses: Expense[]): void {
     expenses.forEach((expense, index) => expense.position = index + 1);
   }
 
-  private saveExpenses(expenses: TableData[]): void {
+  private saveExpenses(expenses: Expense[]): void {
     localStorage.setItem(this.STORAGE_KEY, JSON.stringify(expenses));
   }
 }

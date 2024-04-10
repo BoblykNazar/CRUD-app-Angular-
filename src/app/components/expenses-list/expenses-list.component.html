@@ -29,7 +29,7 @@
           </button>
         </div>
 
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table">
+        <table mat-table [dataSource]="expense" class="mat-elevation-z8 table">
           <ng-container matColumnDef="position">
             <th mat-header-cell *matHeaderCellDef>#</th>
             <td mat-cell *matCellDef="let element">{{element.position}}</td>

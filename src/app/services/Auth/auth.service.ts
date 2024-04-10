@@ -35,7 +35,7 @@ export class AuthService {
   }
 
   addUser(user: User): void {
-    let users = this.getUsers();
+    const users = this.getUsers();
     users.push(user);
     this.saveUsers(users);
   }
